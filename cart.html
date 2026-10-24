@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shopping Cart | LUXEVARO</title>
+  <meta name="description" content="Review your LUXEVARO cart and place your order via WhatsApp.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header is built by js/main.js -->
+  <header id="site-header"></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Your Selection</span>
+        <h1>Shopping Cart</h1>
+        <p>Review your items, then proceed to order. Your order is sent to us on WhatsApp.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-- Cart contents are rendered by js/cart.js -->
+        <div id="cart-root" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ORDER MODAL -->
+  <div class="modal" id="order-modal" role="dialog" aria-modal="true" aria-labelledby="order-title">
+    <div class="modal-dialog">
+      <div class="modal-head">
+        <h3 id="order-title">Delivery Details</h3>
+        <button type="button" class="modal-close" data-close-modal aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="order-form" novalidate>
+          <p class="lead">Fill in your details. We will open WhatsApp with your order message ready to send.</p>
+          <div class="form-row">
+            <div class="field"><label for="o-name">Full Name</label><input id="o-name" name="name" type="text" autocomplete="name"><span class="error">Please enter your full name.</span></div>
+            <div class="field"><label for="o-phone">Contact Number</label><input id="o-phone" name="phone" type="tel" autocomplete="tel" placeholder="+92 300 0000000"><span class="error">Please enter a valid contact number.</span></div>
+          </div>
+          <div class="field"><label for="o-city">City</label><input id="o-city" name="city" type="text" autocomplete="address-level2"><span class="error">Please enter your city.</span></div>
+          <div class="field"><label for="o-address">Complete Delivery Address</label><textarea id="o-address" name="address" autocomplete="street-address"></textarea><span class="error">Please enter your complete address (at least 10 characters).</span></div>
+          <div class="field"><label for="o-notes">Notes <span class="opt">(optional)</span></label><textarea id="o-notes" name="notes" style="min-height:70px"></textarea></div>
+
+          <div class="terms-box">
+            <p><strong>Payment terms:</strong> 50% advance payment. The remaining 50% will be handled according to the seller's agreed payment and delivery terms.</p>
+            <p><strong>Please note:</strong> your order is confirmed only after the seller responds on WhatsApp.</p>
+          </div>
+          <div class="check">
+            <input type="checkbox" id="o-agree" name="agree">
+            <label for="o-agree" style="text-transform:none;letter-spacing:0;font-weight:400;margin:0">I understand the payment terms and that my order is confirmed only after the seller replies on WhatsApp.</label>
+          </div>
+          <button type="submit" class="btn btn-gold" style="width:100%">Send Order on WhatsApp</button>
+        </form>
+
+        <div class="redirect-note" id="order-redirect" hidden>
+          <h3>Opening WhatsApp...</h3>
+          <p>Send the pre-filled message to complete your request. If WhatsApp does not open automatically, use the button below.</p>
+          <a class="btn btn-gold" id="order-whatsapp-link" href="#" target="_self">Open WhatsApp</a>
+          <p class="mt-2" style="font-size:.85rem"><a href="#" data-close-modal style="text-decoration:underline">Back to cart</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
